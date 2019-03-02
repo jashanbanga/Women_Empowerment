@@ -7,8 +7,8 @@ class Donor(models.Model):
 
 
 class Transaction(models.Model):
-	donor_id=models.ForeignKey(User,on_delete="models.CASCADE")
-	receiver_id=models.ForeignKey(User,on_delete="models.CASCADE")
-	amount=models.IntegerField()
-	time=models.DateTimeField(auto_add_now=True)
+	transaction_sender = models.CharField(max_length=256)
+	transaction_receiver = models.ForeignKey(User, on_delete=models.CASCADE)
+	amount = models.IntegerField()
+	time = models.DateTimeField(auto_now_add=True)
 
